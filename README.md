@@ -3,32 +3,29 @@
     <a>
       <img alt="Linux" src="https://img.shields.io/badge/Linux-%23.svg?style=flat-square&logo=linux&color=FCC624&logoColor=black" />
     </a>
-    <a>
-      <img alt="macOS" src="https://img.shields.io/badge/macOS-%23.svg?style=flat-square&logo=apple&color=000000&logoColor=white" />
-    </a>
-    <a href="https://github.com/jdhao/nvim-config/releases/latest">
-      <img alt="Latest release" src="https://img.shields.io/github/v/release/jdhao/nvim-config" />
+    <a href="https://github.com/daiyabarus/nvim/releases/latest">
+      <img alt="Latest release" src="https://img.shields.io/github/v/release/daiyabarus/nvim" />
     </a>
     <a href="https://github.com/neovim/neovim/releases/tag/stable">
       <img src="https://img.shields.io/badge/Neovim-0.9.0-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=green" alt="Neovim minimum version"/>
     </a>
     <a href="https://github.com/daiyabarus/nvim/search?l=vim-script">
-      <img src="https://img.shields.io/github/languages/top/jdhao/nvim-config" alt="Top languages"/>
+      <img src="https://img.shields.io/github/languages/top/daiyabarus/nvim" alt="Top languages"/>
     </a>
     <a href="https://github.com/daiyabarus/nvim/graphs/commit-activity">
-      <img src="https://img.shields.io/github/commit-activity/m/jdhao/nvim-config?style=flat-square" />
+      <img src="https://img.shields.io/github/commit-activity/m/daiyabarus/nvim?style=flat-square" />
     </a>
-    <a href="https://github.com/daiyabarus/nvim/releases/tag/v0.8.1">
-      <img src="https://img.shields.io/github/commits-since/jdhao/nvim-config/v0.8.1?style=flat-square" />
+    <a href="https://github.com/daiyabarus/nvim/releases/tag/v0.9.0">
+      <img src="https://img.shields.io/github/commits-since/jdhao/nvim/v0.9.0?style=flat-square" />
     </a>
     <a href="https://github.com/daiyabarus/nvim/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/jdhao/nvim-config?style=flat-square" />
+      <img src="https://img.shields.io/github/contributors/daiyabarus/nvim?style=flat-square" />
     </a>
     <a>
-      <img src="https://img.shields.io/github/repo-size/jdhao/nvim-config?style=flat-square" />
+      <img src="https://img.shields.io/github/repo-size/daiyabarus/nvim?style=flat-square" />
     </a>
     <a href="https://github.com/daiyabarus/nvim/blob/master/LICENSE">
-      <img src="https://img.shields.io/github/license/jdhao/nvim-config?style=flat-square&logo=GNU&label=License" alt="License"/>
+      <img src="https://img.shields.io/github/license/daiyabarus/nvim?style=flat-square&logo=GNU&label=License" alt="License"/>
     </a>
 </p>
 </div>
