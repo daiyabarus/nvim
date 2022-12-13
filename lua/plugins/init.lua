@@ -190,7 +190,9 @@ local plugins = {
       require("core.utils").load_mappings "telescope"
     end,
   },
+  ["mg979/vim-visual-multi"] = {disable = false},
   ["andweeb/presence.nvim"] = {disable = false},
+  ["AndreAugustoAAQ/friendly-shortcuts.nvim"] = {disable = false},
   -- Only load whichkey after all the gui
   ["folke/which-key.nvim"] = {
     disable = true,
