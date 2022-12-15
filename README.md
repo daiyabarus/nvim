@@ -24,6 +24,14 @@
 </p>
 </div>
 
+## Mappings
+- C = Ctrl
+- Space = leader
+- A = alt
+- S = shift
+
+__Defaults are defined in core.mappings (core/mappings.lua).__
+
 # Introduction
 
 This repo hosts my Nvim configuration for Linux Ubuntu.

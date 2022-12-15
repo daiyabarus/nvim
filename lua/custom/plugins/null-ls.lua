@@ -1,3 +1,5 @@
+-- custom/plugins/null-ls
+
 local present, null_ls = pcall(require, "null-ls")
 
 if not present then
@@ -8,23 +10,92 @@ local b = null_ls.builtins
 
 local sources = {
 
-  -- webdev stuff
-  b.formatting.deno_fmt,
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
+  -- PYTHON
+  -- b.diagnostics.pylint,
+  b.diagnostics.flake8,
+  b.diagnostics.mypy,
+  b.formatting.isort,
+  b.formatting.black,
+  -- b.formatting.autopep8,
 
-  -- Lua
+  -- SHELL / BASH
+  b.diagnostics.shellcheck.with {
+    diagnostics_format = "#{m} [#{c}]",
+    extra_args = {
+      "-o",
+      "all",
+    },
+  },
+  b.formatting.shfmt.with {
+    extra_args = {
+      "-i",
+      "2",
+      "-s",
+      "-bn",
+      "-ci",
+      "-sr",
+    },
+  },
+
+  -- JAVASCRIPT, CSS & HTML
+  b.formatting.prettier.with {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "html",
+      "css",
+      "markdown",
+    },
+    extra_args = {
+      "--print-width",
+      "120",
+    },
+  },
+
+  -- LUA
   b.formatting.stylua,
 
-  -- Shell
-  b.formatting.shfmt,
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+  -- YAML
+  b.diagnostics.yamllint.with {
+    extra_args = {
+      "-d",
+      "{extends: default, rules: {line-length: {max: 999}}}",
+    },
+  },
 
-  -- cpp
-  b.formatting.clang_format,
-  b.formatting.rustfmt,
+  -- OTHER
+  b.formatting.trim_whitespace,
+  b.formatting.trim_newlines,
 }
 
 null_ls.setup {
-  debug = true,
+  debug = false, -- Use :NullLsLog to open your debug log in the current Neovim
+  -- Format on save
+  -- you can reuse a shared lspconfig on_attach callback here
+  on_attach = function(client, bufnr)
+    if client.supports_method "textDocument/formatting" then
+      vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          vim.lsp.buf.format {
+            bufnr = bufnr,
+            -- On Neovim v0.8+, when calling vim.lsp.buf.format you may want to filter
+            -- the available formatters so that only null-ls receives the formatting request.
+            -- Otherwise, when calling vim.lsp.buf.format, other formatters from other clients
+            -- attached to the buffer may attempt to perform a format.
+            filter = function(client)
+              return client.name == "null-ls"
+            end,
+          }
+          -- vim.lsp.buf.formatting_sync()
+        end,
+      })
+    end
+  end,
   sources = sources,
 }
